@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Zones Protegides</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="info.html">Informació</a></li>
+                <li><a href="multimedia.html">Multimèdia</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Mapa de Zones Protegides de Catalunya</h1>
+        <p>Explora les principals zones protegides de Catalunya.</p>
+        <div id="mapa"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Zones Protegides - Tots els drets reservats</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('mapa').setView([41.8205, 1.8677], 8); // Catalunya centrada
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Marcadors de zones protegides
+        var zones = [
+            { nom: "Parc Nacional d'Aigüestortes i Estany de Sant Maurici", lat: 42.5833, lon: 0.9333 },
+            { nom: "Parc Natural del Montseny", lat: 41.7748, lon: 2.3947 },
+            { nom: "Parc Natural de la Zona Volcànica de la Garrotxa", lat: 42.1523, lon: 2.5276 },
+            { nom: "Delta de l'Ebre", lat: 40.713, lon: 0.712 }
+        ];
+
+        zones.forEach(function(zona) {
+            L.marker([zona.lat, zona.lon])
+                .addTo(map)
+                .bindPopup(`<b>${zona.nom}</b>`);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zones Protegides a Catalunya</title>
+    <link rel="stylesheet" href="css/style.css">
+
+<style>
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  #main-menu a {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    #main-menu {
+      display: none;
+      flex-direction: column;
+    }
+
+    #main-menu.show {
+      display: flex;
+    }
+
+    #main-menu a {
+      display: block;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+    
+<!-- Menú hamburguesa -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<!-- Menú principal responsive -->
+<nav id="main-menu" class="hidden">
+  <a href="index.html">Inici</a>
+  <a href="info.html">Informació</a>
+  <a href="multimedia.html">Multimèdia</a>
+  <a href="mapa.html">Mapa</a>
+  <a href="contacte.html">Contacte</a>
+</nav>
+
+
+    <main>
+        <section class="hero">
+            <div class="overlay">
+                <h1>Descobreix les Zones Protegides de Catalunya</h1>
+                <p>Un patrimoni natural que cal conservar</p>
+                <a href="info.html" class="cta-button">Més informació</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Zones Protegides - Tots els drets reservats</p>
+    </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("main-menu");
+    menu.classList.toggle("show");
+  }
+</script>
+</body>
+</html>
